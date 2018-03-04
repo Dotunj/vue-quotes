@@ -1,28 +1,31 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <HelloWorld/>
+  <div class="container">
+  <app-new-quote></app-new-quote>
+   <app-grid :quotes="quotes"></app-grid>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
+import QuoteGrid from './components/QuoteGrid.vue';
+import NewQuote from './components/NewQuote.vue';
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+  data:function() {
+      return{
+        quotes: [
+            "Just a Quote to see something",
+            "Yeah for bish"
+        ],
+        maxQuotes: 10
+      }
+  },
+   components:{
+        appGrid: QuoteGrid,
+        appNewQuote: NewQuote
+      }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style scoped>
+
 </style>
